@@ -5,16 +5,19 @@ class TaskIn(BaseModel):
     description: str = Field(..., title="Описание задачи")
     params: dict = Field(..., title="Параметры задачи")
 
-    class Config:
-        schema_extra = {
-            "example": {
-                "description": "Описание задачи",
-                "params": {
-                    "param_1": "Параметр 1",
-                    "param_2": 2
+    model_config = {
+        "json_schema_extra": {
+            "examples": [
+                {
+                    "description": "Описание задачи",
+                    "params": {
+                        "param_1": "Параметр 1",
+                        "param_2": 2
+                    }
                 }
-            }
+            ]
         }
+    }
 
 
 class TaskOut(BaseModel):
@@ -22,14 +25,17 @@ class TaskOut(BaseModel):
     description: str = Field(..., title="Описание задачи")
     params: dict = Field(..., title="Параметры задачи")
 
-    class Config:
-        schema_extra = {
-            "example": {
-                "task_uuid": "Уникальный идентификатор задачи в формате UUID",
-                "description": "Описание задачи",
-                "params": {
-                    "param_1": "Параметр 1",
-                    "param_2": 2
+    model_config = {
+        "json_schema_extra": {
+            "examples": [
+                {
+                    "task_uuid": "Уникальный идентификатор задачи в формате UUID",
+                    "description": "Описание задачи",
+                    "params": {
+                        "param_1": "Параметр 1",
+                        "param_2": 2
+                    }
                 }
-            }
+            ]
         }
+    }
